@@ -1,0 +1,36 @@
+add_library(
+  icu
+  appendable.cpp
+  charstr.cpp
+  cmemory.cpp
+  cstring.cpp
+  putil.cpp
+  stringpiece.cpp
+  ucln_cmn.cpp
+  udataswp.cpp
+  uinvchar.cpp
+  umutex.cpp
+  unistr.cpp
+  uobject.cpp
+  ustring.cpp
+  ustrtrns.cpp
+  utf_impl.cpp
+  utrace.cpp
+)
+
+target_include_directories(
+  icu
+  PUBLIC
+    "${CMAKE_CURRENT_LIST_DIR}"
+)
+
+target_compile_definitions(
+  icu
+  PUBLIC
+    UNISTR_FROM_CHAR_EXPLICIT=explicit
+    UNISTR_FROM_STRING_EXPLICIT=explicit
+    U_COMMON_IMPLEMENTATION
+    U_HAVE_STRING_VIEW=1
+    U_HIDE_OBSOLETE_UTF_OLD_H=1
+    U_NO_DEFAULT_INCLUDE_UTF_HEADERS=1
+)
