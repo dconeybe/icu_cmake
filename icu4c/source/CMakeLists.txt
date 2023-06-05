@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)
 project(icu)
 
 add_subdirectory(common)
+add_subdirectory(io)
 
 add_executable(
   icudemo
@@ -15,5 +16,6 @@ add_executable(
 target_link_libraries(
   icudemo
   PRIVATE
-  icu
+  third_party.icu.common
+  third_party.icu.io
 )
